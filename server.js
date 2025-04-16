@@ -1,14 +1,16 @@
 const express = require('express');
 const { Client, Environment } = require('square');
 const cors = require('cors');
-app.use(cors({
-  origin: 'https://heartfelt-strudel-c08548.netlify.app'
-}));
 const crypto = require('crypto');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS fix for Netlify domain
+app.use(cors({
+  origin: 'https://heartfelt-strudel-c08548.netlify.app'
+}));
+
 app.use(express.json());
 
 const client = new Client({
@@ -38,7 +40,7 @@ app.post('/payment', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Moe's Jerky Backend Running');
+  res.send("Moe's Jerky backend is running");
 });
 
 const PORT = process.env.PORT || 3000;
