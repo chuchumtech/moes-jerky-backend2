@@ -1,6 +1,9 @@
 const express = require('express');
 const { Client, Environment } = require('square');
 const cors = require('cors');
+app.use(cors({
+  origin: 'https://heartfelt-strudel-c08548.netlify.app'
+}));
 const crypto = require('crypto');
 require('dotenv').config();
 
